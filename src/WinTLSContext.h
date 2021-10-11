@@ -43,6 +43,8 @@
 
 #include <windows.h>
 #include <security.h>
+
+#define SCHANNEL_USE_BLACKLISTS 1
 #include <schnlsp.h>
 
 #include "TLSContext.h"
@@ -90,7 +92,7 @@ public:
 
 private:
   TLSSessionSide side_;
-  SCHANNEL_CRED credentials_;
+  SCH_CREDENTIALS credentials_;
   HCERTSTORE store_;
   wintls::CredPtr cred_;
 };
